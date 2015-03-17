@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item type="id" name="map" />
+    <item type="id" name="DisplayMarkersPreference" />
+    <item type="id" name="action_settings" />
+    <item type="id" name="usernameEditText" />
+    <item type="id" name="passwordEditText" />
+    <item type="id" name="loginButton" />
 </resources>

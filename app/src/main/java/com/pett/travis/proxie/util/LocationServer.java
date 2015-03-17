@@ -28,12 +28,19 @@ public class LocationServer implements LocationListener {
     public LocationServer(MainActivity activity) {
         this.activity = activity;
         context = activity.getApplicationContext();
-        Toast.makeText(context, "LocationServer", Toast.LENGTH_LONG).show();
+        Toast.makeText(context, "LocationServer", Toast.LENGTH_SHORT).show();
 
         locationManager = (LocationManager)context.getSystemService(Context.LOCATION_SERVICE);
-        locationManager.requestLocationUpdates(5000, 0, new Criteria(), this, null);
 
         setMap();
+    }
+
+    public void start() {
+        locationManager.requestLocationUpdates(5000, 0, new Criteria(), this, null);
+    }
+
+    public void stop() {
+        locationManager.removeUpdates(this);
     }
 
     private void setMap() {
@@ -49,7 +56,7 @@ public class LocationServer implements LocationListener {
 
     @Override
     public void onLocationChanged(Location location) {
-        Toast.makeText(context, "Location Updated", Toast.LENGTH_LONG).show();
+        Toast.makeText(context, "Location Updated", Toast.LENGTH_SHORT).show();
 
         LatLng cameraLocation = new LatLng(location.getLatitude(), location.getLongitude());
         map.moveCamera(CameraUpdateFactory.newLatLng(cameraLocation));
