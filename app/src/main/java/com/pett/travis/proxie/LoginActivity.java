@@ -29,7 +29,6 @@ public class LoginActivity extends ActionBarActivity {
         }
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -54,14 +53,16 @@ public class LoginActivity extends ActionBarActivity {
 
     public void validateLogin(View view) {
         EditText usernameView = (EditText)findViewById(R.id.usernameEditText);
-        usernameView.setError(getString(R.string.errorIncorrectLogin));
+        //usernameView.setError(getString(R.string.errorIncorrectLogin));
         usernameView.requestFocus();
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         sharedPreferences.edit().putString("usernameKey", usernameView.getText().toString()).apply();
 
+        //newUser = false;
+
         Intent intent = new Intent(this, StartActivity.class);
-        intent.putExtra("loginSuccessful", "true");
         startActivity(intent);
+        finish();
     }
 }

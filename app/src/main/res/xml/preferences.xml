@@ -1,10 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <CheckBoxPreference
-        android:id="@id/DisplayMarkersPreference"
-        android:key="@string/DisplayMarkersPreferenceKey"
-        android:title="@string/DisplayMarkersPreferenceTitle"
-        android:defaultValue="false" />
+    <PreferenceCategory
+        android:title="@string/mapPreferenceCategoryTitle"
+        android:key="@string/mapPreferenceCategoryKey">
+        <CheckBoxPreference
+            android:id="@id/displayUsersPreference"
+            android:key="@string/displayUsersPreferenceKey"
+            android:title="@string/displayUsersPreferenceTitle"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:id="@id/displayMessageLocationsPreference"
+            android:key="@string/displayMessageLocationsPreferenceKey"
+            android:title="@string/displayMessageLocationsPreferenceTitle"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/forumPreferenceCategoryTitle"
+        android:key="@string/forumPreferenceCategoryKey">
+        <CheckBoxPreference
+            android:id="@id/stayLoggedInCheckbox"
+            android:key="@string/stayLoggedInCheckboxKey"
+            android:title="@string/stayLoggedInCheckboxTitle"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:id="@id/relayMessagesCheckbox"
+            android:key="@string/relayMessagesCheckboxKey"
+            android:title="@string/relayMessagesCheckboxTitle"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/composePreferenceCategoryTitle"
+        android:key="@string/composePreferenceCategoryKey">
+        <CheckBoxPreference
+            android:id="@id/includeSenderCheckbox"
+            android:key="@string/includeSenderCheckboxKey"
+            android:title="@string/includeSenderCheckboxTitle"
+            android:defaultValue="true" />
+        <CheckBoxPreference
+            android:id="@id/includeLatLongCheckbox"
+            android:key="@string/includeLatLongCheckboxKey"
+            android:title="@string/includeLatLongCheckboxTitle"
+            android:defaultValue="true" />
+        <EditTextPreference
+            android:id="@id/maxNumberHopsEditText"
+            android:key="@string/maxNumberHopsEditTextKey"
+            android:title="@string/maxNumberHopsEditTextTitle" />
+        <EditTextPreference
+            android:id="@id/messageLifeEditText"
+            android:key="@string/messageLifeEditTextKey"
+            android:title="@string/messageLifeEditTextTitle" />
+    </PreferenceCategory>
 </PreferenceScreen>

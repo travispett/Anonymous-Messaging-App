@@ -1,27 +1,21 @@
 package com.pett.travis.proxie;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.pett.travis.proxie.util.LocationServer;
 import com.pett.travis.proxie.util.SettingsActivity;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MapActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //LocationServer locationServer = new LocationServer(this);
     }
 
     @Override
@@ -30,13 +24,6 @@ public class MainActivity extends ActionBarActivity {
 
         LocationServer locationServer = new LocationServer(this);
         locationServer.start();
-
-        String key = getString(R.string.DisplayMarkersPreferenceKey);
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        Boolean displayMarkers = sharedPreferences.getBoolean(key, false);
-
-        Context context = getApplicationContext();
-        Toast.makeText(context, "Display Markers: " + displayMarkers.toString(), Toast.LENGTH_SHORT).show();
     }
 
     @Override

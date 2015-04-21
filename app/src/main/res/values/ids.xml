@@ -1,9 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item type="id" name="map" />
-    <item type="id" name="DisplayMarkersPreference" />
+    <item type="id" name="displayUsersPreference" />
     <item type="id" name="action_settings" />
     <item type="id" name="usernameEditText" />
     <item type="id" name="passwordEditText" />
     <item type="id" name="loginButton" />
+    <item type="id" name="forumActivityFilterButton" />
+    <item type="id" name="forumActivityComposeButton" />
+    <item type="id" name="forum_action_settings" />
+    <item type="id" name="forum_action_contacts" />
+    <item type="id" name="forum_action_map" />
+    <item type="id" name="displayMessageLocationsPreference" />
+    <item type="id" name="composeActivityToField" />
+    <item type="id" name="composeActivityMessageField" />
+    <item type="id" name="composeSendButton" />
+    <item type="id" name="composeCancelButton" />
+    <item type="id" name="stayLoggedInCheckbox" />
+    <item type="id" name="relayMessagesCheckbox" />
+    <item type="id" name="includeSenderCheckbox" />
+    <item type="id" name="includeLatLongCheckbox" />
+    <item type="id" name="maxNumberHopsEditText" />
+    <item type="id" name="messageLifeEditText" />
+    <item type="id" name="forumListView" />
+    <item type="id" name="forumLinearLayout" />
+    <item type="id" name="messageSourceTextView" />
+    <item type="id" name="messageTextTextView" />
+    <item type="id" name="messageDialogText" />
+    <item type="id" name="messageDialogSender" />
+    <item type="id" name="messageDialogTarget" />
+    <item type="id" name="messageDialogSource" />
+    <item type="id" name="messageDialogNumHops" />
+    <item type="id" name="messageDialogExpirationTime" />
+    <item type="id" name="messageDialogIsIncoming" />
 </resources>

@@ -16,16 +16,16 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.pett.travis.proxie.MainActivity;
+import com.pett.travis.proxie.MapActivity;
 import com.pett.travis.proxie.R;
 
 public class LocationServer implements LocationListener {
-    private MainActivity activity = null;
+    private MapActivity activity = null;
     private Context context = null;
     private LocationManager locationManager = null;
     private GoogleMap map = null;
 
-    public LocationServer(MainActivity activity) {
+    public LocationServer(MapActivity activity) {
         this.activity = activity;
         context = activity.getApplicationContext();
         Toast.makeText(context, "LocationServer", Toast.LENGTH_SHORT).show();
