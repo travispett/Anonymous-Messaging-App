@@ -14,12 +14,12 @@ import java.util.ArrayList;
 /**
  * Created by Travis on 4/2/2015.
  */
-public class MessageListAdapter extends ArrayAdapter<Message> {
+public class MessageListAdapter extends ArrayAdapter<ProxieMessage> {
     private Context context;
     private int resource;
-    private ArrayList<Message> messages;
+    private ArrayList<ProxieMessage> messages;
 
-    public MessageListAdapter(Context context, int resource, ArrayList<Message> messages) {
+    public MessageListAdapter(Context context, int resource, ArrayList<ProxieMessage> messages) {
         super(context, resource, messages);
         this.context = context;
         this.resource = resource;
@@ -32,7 +32,7 @@ public class MessageListAdapter extends ArrayAdapter<Message> {
             LayoutInflater layoutInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = layoutInflater.inflate(R.layout.message_view, null);
         }
-        Message message = messages.get(position);
+        ProxieMessage message = messages.get(position);
 
         if (message != null) {
             TextView source = (TextView)view.findViewById(R.id.messageSourceTextView);

@@ -59,9 +59,8 @@ public class LoginActivity extends ActionBarActivity {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         sharedPreferences.edit().putString("usernameKey", usernameView.getText().toString()).apply();
 
-        //newUser = false;
-
         Intent intent = new Intent(this, StartActivity.class);
+        intent.putExtra("loggedIn", true);
         startActivity(intent);
         finish();
     }

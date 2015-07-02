@@ -46,5 +46,10 @@
     <string name="messageLifeEditTextKey">messageLifeEditTextKey</string>
     <string name="title_activity_message_dialog">MessageDialog</string>
 
+   <string name="uuid">4C8ad703-5dd3-4963-ac34-113da6f2e7ea</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>

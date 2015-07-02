@@ -3,14 +3,14 @@ package com.pett.travis.proxie;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.pett.travis.proxie.message_service.Message;
+import com.pett.travis.proxie.message_service.ProxieMessage;
 import com.pett.travis.proxie.message_service.MessageDialog;
 import com.pett.travis.proxie.message_service.MessageListAdapter;
 import com.pett.travis.proxie.message_service.MessageService;
@@ -21,9 +21,9 @@ import java.util.ArrayList;
 
 public class ForumActivity extends ActionBarActivity {
 
-    public static ArrayList<Message> messages;
+    public static ArrayList<ProxieMessage> messages = null;
     private MessageService mService;
-    public static String EXTRA_MESSAGE_POSITION_KEY;
+    public static String EXTRA_MESSAGE_POSITION_KEY = "";
     public static int COMPOSE_MESSAGE_REQUEST = 1;
 
     @Override
@@ -31,10 +31,12 @@ public class ForumActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum);
 
-        messages = new ArrayList<Message>();
+        messages = new ArrayList<ProxieMessage>();
         MessageListAdapter adapter = new MessageListAdapter(this, android.R.layout.simple_list_item_1, messages);
         ListView listView = (ListView) findViewById(R.id.forumListView);
         listView.setAdapter(adapter);
+
+        mService = new MessageService(this, messages, adapter);
 
         AdapterView.OnItemClickListener messageClickedListener = new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView parent, View view, int position, long id) {
@@ -44,9 +46,6 @@ public class ForumActivity extends ActionBarActivity {
             }
         };
         listView.setOnItemClickListener(messageClickedListener);
-
-        mService = new MessageService(adapter, messages);
-
     }
 
 
@@ -104,9 +103,16 @@ public class ForumActivity extends ActionBarActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == COMPOSE_MESSAGE_REQUEST) {
             if (resultCode == RESULT_OK) {
-                Message message = data.getParcelableExtra(ComposeActivity.COMPOSE_MESSAGE_REQUEST);
+                ProxieMessage message = data.getParcelableExtra(ComposeActivity.COMPOSE_MESSAGE_REQUEST);
                 mService.addMessage(message);
+                Log.d(StartActivity.TAG, "Message added");
             }
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onStop();
+        mService.stopService();
     }
 }

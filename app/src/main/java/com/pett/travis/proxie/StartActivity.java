@@ -10,6 +10,11 @@ import android.preference.PreferenceManager;
 public class StartActivity extends Activity {
 
     private static boolean userLoggedIn = false;
+    public static String TAG = "Proxie";
+    public static String PROXIE_NO_SERVICE = "proxie";
+    public static String PROXIE_SEND_ONLY = "proxie>";
+    public static String PROXIE_RECV_ONLY = "proxie<";
+    public static String PROXIE_SEND_AND_RECV = "proxie><";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +25,12 @@ public class StartActivity extends Activity {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         String savedUsername = sharedPreferences.getString("usernameKey", "none");
 
-        if (!savedUsername.equalsIgnoreCase("none"))
+        if (sharedPreferences.getBoolean("stayLoggedInCheckboxKey", true)) {
+            if (!savedUsername.equalsIgnoreCase("none"))
+                userLoggedIn = true;
+        }
+
+        if (getIntent().hasExtra("loggedIn"))
             userLoggedIn = true;
         if (userLoggedIn) {
             Intent intent = new Intent(this, ForumActivity.class);

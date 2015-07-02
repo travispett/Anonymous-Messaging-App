@@ -8,41 +8,9 @@
     android:paddingRight="16dp"
     android:orientation="vertical"
     tools:context="com.pett.travis.proxie.ComposeActivity">
-    <EditText
+
+    <android.support.v4.view.ViewPager
+        android:id="@id/composeViewPager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:hint="@string/composeToHint"
-        android:id="@id/composeActivityToField"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="top"
-        android:hint="@string/composeMessageHint"
-        android:id="@id/composeActivityMessageField"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
-        android:orientation="horizontal">
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_weight="3"
-            android:id="@id/composeSendButton"
-            android:text="@string/sendButton"
-            style="?android:attr/buttonBarButtonStyle"
-            android:onClick="sendMessage" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_weight="3"
-            android:id="@id/composeCancelButton"
-            android:text="@string/cancelButton"
-            style="?android:attr/buttonBarButtonStyle"
-            android:onClick="cancel" />
-    </LinearLayout>
+        android:layout_height="match_parent" />
 </LinearLayout>

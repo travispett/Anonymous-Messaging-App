@@ -4,11 +4,12 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.google.android.gms.maps.model.LatLng;
+import com.proxie.SerializedMessage;
 
 /**
  * Created by Travis on 4/2/2015.
  */
-public class Message implements Parcelable{
+public class ProxieMessage implements Parcelable{
 
     public static final String BROADCAST_MESSAGE = "BROADCAST";
     public static final String ANONYMOUS = "Anonymous";
@@ -22,7 +23,7 @@ public class Message implements Parcelable{
     long expirationTime;
     int createByUser;
 
-    public Message(String text, String sender, String target, LatLng source, int numHops, long expirationTime,int createByUser) {
+    public ProxieMessage(String text, String sender, String target, LatLng source, int numHops, long expirationTime, int createByUser) {
         this.text = text;
         this.sender = sender;
         this.target = target;
@@ -31,6 +32,21 @@ public class Message implements Parcelable{
         this.numHops = numHops;
         this.expirationTime = expirationTime;
         this.createByUser = createByUser;
+    }
+
+    public ProxieMessage(SerializedMessage m) {
+        text = m.getText();
+        sender = m.getSender();
+        target = m.getTarget();
+        senderLatitude = m.getLatitude();
+        senderLongitude = m.getLongitude();
+        numHops = m.getNumHops();
+        expirationTime = m.getExpirationTime();
+        createByUser = m.getCreatedByUser();
+    }
+
+    public SerializedMessage serialize() {
+        return new SerializedMessage(text, sender, target, senderLatitude, senderLongitude, numHops, expirationTime, createByUser);
     }
 
     public int describeContents() {
@@ -48,17 +64,17 @@ public class Message implements Parcelable{
         dest.writeInt(createByUser);
     }
 
-    public static final Parcelable.Creator<Message> CREATOR = new Parcelable.Creator<Message>() {
-        public Message createFromParcel(Parcel in) {
-            return new Message(in);
+    public static final Parcelable.Creator<ProxieMessage> CREATOR = new Parcelable.Creator<ProxieMessage>() {
+        public ProxieMessage createFromParcel(Parcel in) {
+            return new ProxieMessage(in);
         }
 
-        public Message[] newArray(int size) {
-            return new Message[size];
+        public ProxieMessage[] newArray(int size) {
+            return new ProxieMessage[size];
         }
     };
 
-    private Message(Parcel in) {
+    private ProxieMessage(Parcel in) {
         text = in.readString();
         sender = in.readString();
         target = in.readString();

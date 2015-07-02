@@ -7,11 +7,11 @@ import android.os.Handler;
  * Created by Travis on 4/8/2015.
  */
 public class RemoveMessageTask extends TimerTask {
-    private Message message;
+    private ProxieMessage message;
     private Handler handler;
     private MessageService messageService;
 
-    public RemoveMessageTask(Message message, MessageService messageService) {
+    public RemoveMessageTask(ProxieMessage message, MessageService messageService) {
         this.message = message;
         this.handler = new Handler();
         this.messageService = messageService;

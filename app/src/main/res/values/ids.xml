@@ -33,4 +33,6 @@
     <item type="id" name="messageDialogNumHops" />
     <item type="id" name="messageDialogExpirationTime" />
     <item type="id" name="messageDialogIsIncoming" />
+    <item type="id" name="composeViewPager" />
+    <item name="section_label" type="id" />
 </resources>

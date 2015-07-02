@@ -2,8 +2,6 @@ package com.pett.travis.proxie.message_service;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.pett.travis.proxie.ForumActivity;
@@ -21,7 +19,7 @@ public class MessageDialog extends ActionBarActivity {
         setContentView(R.layout.activity_message_dialog);
 
         int position = getIntent().getIntExtra(ForumActivity.EXTRA_MESSAGE_POSITION_KEY, -1);
-        Message m = ForumActivity.messages.get(position);
+        ProxieMessage m = ForumActivity.messages.get(position);
 
         TextView textView = (TextView)findViewById(R.id.messageDialogText);
         textView.setText("Text: " + m.getText());
